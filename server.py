@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_restful import Api
 from sqlalchemy import create_engine
-from classes import Employees, EmployeesName, Tracks
+from classes import Employees, EmployeeId, Tracks
 
 # Create database connection and app
 db = create_engine('sqlite:///chinook.db')
@@ -23,7 +23,7 @@ def hello():
 
 # Routing
 api.add_resource(set_db(Employees.Employees), '/employees')
-api.add_resource(set_db(EmployeesName.EmployeesName), '/employees/<employee_id>')
+api.add_resource(set_db(EmployeeId.EmployeeId), '/employees/<employee_id>')
 api.add_resource(set_db(Tracks.Tracks), '/tracks')
 
 
